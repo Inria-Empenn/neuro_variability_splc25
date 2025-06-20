@@ -3,6 +3,8 @@ Youenn Merel-Jourdan, Mathieu Acher, Camille Maumet
 
 Submitted to SPLC'25, September 01-September 05, 2025 Coruña, Spain
 
+[![SWH](https://archive.softwareheritage.org/badge/swh:1:dir:b4c8f777c77a70d98351461efb07e50d18641790/)](https://archive.softwareheritage.org/swh:1:dir:b4c8f777c77a70d98351461efb07e50d18641790;origin=https://github.com/Inria-Empenn/neuro_variability_splc25;visit=swh:1:snp:e6cb0b387b560f4324237664bcc0f0c9b458e300;anchor=swh:1:rev:ac9c7052cae29072782530874064b1c4a1f03996)
+
 # Data
 
 Data used in the paper is available in the `data` directory
@@ -29,7 +31,7 @@ The expert-crafted configuration is `config_ref.csv`.
 
 # Sampling
 
-The code used for this part is available at https://github.com/Inria-Empenn/fmri_feature_model
+The code used for this part is available at https://github.com/Inria-Empenn/fmri_feature_model [![SWH](https://archive.softwareheritage.org/badge/swh:1:dir:763e704299464012a925bee26659b001b1e54211/)](https://archive.softwareheritage.org/swh:1:dir:763e704299464012a925bee26659b001b1e54211;origin=https://github.com/Inria-Empenn/fmri_feature_model;visit=swh:1:snp:80f048cbc30d119646b894d9cd9f2e4401427fdd;anchor=swh:1:rev:473edb27cf19d6adfc40a4adb751eb7c17abad76)
 
 ## Pull & install project
 ``` shell
@@ -48,7 +50,7 @@ python sample.py --nconfig 1000 --parts 20
 
 # Pipelines execution & postprocessing
 
-The code used for this part is available at https://github.com/Inria-Empenn/fmri-conf-runner
+The code used for this part is available at https://github.com/Inria-Empenn/fmri-conf-runner [![SWH](https://archive.softwareheritage.org/badge/swh:1:dir:418f69eb194e6df377aea957329401855fe210b4/)](https://archive.softwareheritage.org/swh:1:dir:418f69eb194e6df377aea957329401855fe210b4;origin=https://github.com/Inria-Empenn/fmri-conf-runner;visit=swh:1:snp:0f907b083a2abe4c90c6a18bb6443625ebd43a48;anchor=swh:1:rev:65f5cd990722478558a602884fed972600289078)
 
 ## Pull & install project
 ``` shell
