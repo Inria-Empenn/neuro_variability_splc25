@@ -65,8 +65,9 @@ pip install -r requirements.txt
 ``` shell
 docker build . -t fmri-conf-runner
 ```
+Final `fmri-conf-runner` image size is approximately 6.5 GB
 
-Final image size is approximately 6.5 GB
+Alternatively, you can directly pull latest image from GitHub : `docker pull ghcr.io/inria-empenn/fmri-confs-runner:latest`
 
 ## Pipelines execution
 
@@ -91,6 +92,9 @@ oarsub -S -n fmri-conf-runner ./run_configs.sh
 ## Postprocessing
 
 Change `/local/path/to/...` to your local paths
+
+- `/local/path/to/results` : This folder must contains the outputs of the pipeline execution step. Will be mapped to `/results` in the container.
+
 ``` sh
 docker run -u root -v "/local/path/to/results:/results" fmri-conf-runner python -u postprocess.py --results "/results"
 ```
