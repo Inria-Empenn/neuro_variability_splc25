@@ -1,12 +1,12 @@
 {
-  "data_path" : "~/fmri-feature-model/data/auditory",
+  "data_path" : "/data/auditory",
   "input" : {
     "anat" : "sub-{subject_id}/anat/sub-{subject_id}_T1w.nii",
     "func" : "sub-{subject_id}/func/sub-{subject_id}_task-auditory_bold.nii",
     "events" : "sub-{subject_id}/func/sub-{subject_id}_task-auditory_events_corrected.tsv"
   },
-  "result_path" : "~/fmri-feature-model/results",
-  "work_path" : "~/fmri-feature-model/work",
+  "result_path" : "/results",
+  "work_path" : "/work",
   "task" : "auditory",
   "subjects" : ["01"],
   "slices_nb" : 64,
