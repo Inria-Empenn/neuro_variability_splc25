@@ -27,7 +27,7 @@ The expert-crafted configuration is `config_ref.csv`.
 
 ## Data descriptor
 
-`data/auditory/data_desc_auditory.json` is a JSON file describing the experiments data
+`data/auditory/data_desc_auditory.json` is a JSON file describing the experiments data and some execution paths.
 
 # Sampling
 
@@ -66,14 +66,18 @@ pip install -r requirements.txt
 docker build . -t fmri-conf-runner
 ```
 
+Final image size is approximately 6.5 GB
+
 ## Pipelines execution
 
 Change `/local/path/to/...` to your local paths
 
-- `/local/path/to/data` : This folder must contains the 'auditory' dataset/subfolder
-- `/local/path/to/results` : This folder must exists
-- `/local/path/to/workdir` : This folder must exists
-- `/local/path/to/configs` : This folder must contains configuration CSV files (in this example `config.csv` and `config_ref.csv`)
+- `/local/path/to/data` : Will be mapped to `/data` in the container. This folder must contains
+   - the `auditory` dataset/subfolder
+   - `data_desc.json` file
+- `/local/path/to/results` : This folder must exists. Will be mapped to `/results` in the container.
+- `/local/path/to/workdir` : This folder must exists. Will be mapped to `/workdir` in the container.
+- `/local/path/to/configs` : This folder must contains configuration CSV files (in this example `config.csv` and `config_ref.csv`). Will be mapped to `/configs` in the container.
 
 ``` sh
 docker run -u root -v "/local/path/to/data:/data" -v "/local/path/to/results:/results" -v "/local/path/to/workdir:/work" -v "/local/path/to/configs:/configs" fmri-conf-runner python -u run.py --configs "/configs/config.csv" --data /data/data_desc.json --ref /configs/config_ref.csv
