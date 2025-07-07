@@ -69,6 +69,12 @@ docker build . -t fmri-conf-runner
 ## Pipelines execution
 
 Change `/local/path/to/...` to your local paths
+
+- `/local/path/to/data` : This folder must contains the 'auditory' dataset/subfolder
+- `/local/path/to/results` : This folder must exists
+- `/local/path/to/workdir` : This folder must exists
+- `/local/path/to/configs` : This folder must contains configuration CSV files (in this example `config.csv` and `config_ref.csv`)
+
 ``` sh
 docker run -u root -v "/local/path/to/data:/data" -v "/local/path/to/results:/results" -v "/local/path/to/workdir:/work" -v "/local/path/to/configs:/configs" fmri-conf-runner python -u run.py --configs "/configs/config.csv" --data /data/data_desc.json --ref /configs/config_ref.csv
 ```
