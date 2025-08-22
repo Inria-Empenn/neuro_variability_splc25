@@ -6,6 +6,7 @@ from flamapy.metamodels.configuration_metamodel.models.configuration import Conf
 
 class AAFMService:
     dm = DiscoverMetamodels()
+    path2fm = '../data/model/full_pipeline.uvl'
 
     def get_feature_model(self, path: str):
         """
@@ -107,7 +108,16 @@ class AAFMService:
         operation.execute(bdd_model)
         return operation.get_result()
 
-    def get_config_repartition(self, fm : VariabilityModel):
+    def get_all_configs(self) -> list[dict]:
+        fm = self.get_feature_model(self.path2fm)
+        configs = self.get_all_config(fm)
+        all = []
+        for conf in configs:
+            all.append(conf.elements)
+        print(f"Retrieved all [{str(len(all))}] configurations from [{self.path2fm}]")
+        return all
+
+    def get_config_repartition(self, fm: VariabilityModel):
         bdd_model = self.get_bdd_model(fm)
         operation = self.dm.get_operation(bdd_model, 'BDDProductDistribution')
         operation.execute(bdd_model)
@@ -123,8 +133,7 @@ class AAFMService:
             raise ValueError("More than 1 reference configuration found")
         return configs[0]
 
-
-    def get_features(self, feature, attr: str|None):
+    def get_features(self, feature, attr):
         features = []
         if not attr:
             features.append(feature)
@@ -142,5 +151,6 @@ class AAFMService:
 
 if __name__ == '__main__':
     srv = AAFMService()
-    conf = srv.get_ref_config(srv.get_feature_model("/home/ymerel/fmri-feature-model/model/uvl/preprocessing_pipeline.uvl"))
+    conf = srv.get_ref_config(
+        srv.get_feature_model("/home/ymerel/fmri-feature-model/model/uvl/preprocessing_pipeline.uvl"))
     print(conf)
